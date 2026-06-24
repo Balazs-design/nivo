@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nívó Automotive | Prémium Autófényezés és Kozmetika</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Montserrat & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        gold: {
+                            50: '#fdfbf7',
+                            100: '#fbf7ed',
+                            200: '#f4e9cf',
+                            300: '#eddca2',
+                            400: '#dfc24c',
+                            500: '#d4af37', // Classic Premium Gold
+                            600: '#be962a',
+                            700: '#9e7820',
+                            800: '#7e5a19',
+                            900: '#674715',
+                        },
+                        richblack: {
+                            DEFAULT: '#0B0B0C',
+                            light: '#141416',
+                            lighter: '#1E1E22'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0B0C;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #be962a;
+        }
+        /* Custom Glowing effects */
+        .gold-glow {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+        }
+        .gold-glow-strong {
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.35);
+        }
+        /* Clip paths */
+        .clip-slant {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+    </style>
+</head>
+<body class="bg-richblack text-gray-200 font-sans overflow-x-hidden">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-richblack/90 backdrop-blur-md border-b border-gold-500/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2">
+                    <span class="text-2xl font-serif font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-500 to-gold-700">
+                        NÍVÓ<span class="text-white font-sans font-light text-lg tracking-normal ml-1">AUTOMOTIVE</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#szolgaltatasok" class="text-sm font-medium hover:text-gold-400 transition-colors uppercase tracking-wider">Szolgáltatások</a>
+                    <a href="#elotte-utana" class="text-sm font-medium hover:text-gold-400 transition-colors uppercase tracking-wider">Galéria</a>
+                    <a href="#kalkulator" class="text-sm font-medium hover:text-gold-400 transition-colors uppercase tracking-wider">Árkalkulátor</a>
+                    <a href="#velemenyek" class="text-sm font-medium hover:text-gold-400 transition-colors uppercase tracking-wider">Vélemények</a>
+                    <a href="#kapcsolat" class="text-sm font-medium hover:text-gold-400 transition-colors uppercase tracking-wider">Kapcsolat</a>
+                </div>
+
+                <!-- Call to Action button -->
+                <div class="hidden sm:block">
+                    <a href="#kapcsolat" class="inline-flex items-center px-6 py-3 border border-gold-500 text-xs font-semibold uppercase tracking-widest text-gold-400 hover:bg-gold-500 hover:text-black transition-all duration-300 rounded-sm gold-glow">
+                        <i class="fa-solid fa-calendar-check mr-2"></i> Időpontfoglalás
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gold-400 hover:text-white focus:outline-none" aria-label="Menü megnyitása">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-richblack-light border-b border-gold-500/20 px-4 py-6 space-y-4">
+            <a href="#szolgaltatasok" class="block text-base font-medium text-gray-300 hover:text-gold-400 transition-colors uppercase tracking-wider">Szolgáltatások</a>
+            <a href="#elotte-utana" class="block text-base font-medium text-gray-300 hover:text-gold-400 transition-colors uppercase tracking-wider">Galéria</a>
+            <a href="#kalkulator" class="block text-base font-medium text-gray-300 hover:text-gold-400 transition-colors uppercase tracking-wider">Árkalkulátor</a>
+            <a href="#velemenyek" class="block text-base font-medium text-gray-300 hover:text-gold-400 transition-colors uppercase tracking-wider">Vélemények</a>
+            <a href="#kapcsolat" class="block text-base font-medium text-gray-300 hover:text-gold-400 transition-colors uppercase tracking-wider">Kapcsolat</a>
+            <a href="#kapcsolat" class="block w-full text-center px-6 py-3 bg-gradient-to-r from-gold-600 to-gold-400 text-black font-semibold uppercase tracking-widest rounded-sm">
+                Időpontot Kérek
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-black">
+        <!-- Background Overlay / Video Placeholder -->
+        <div class="absolute inset-0 z-0 opacity-40">
+            <!-- Sötétítő színátmenetek a prémium hatásért -->
+            <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-richblack via-transparent to-transparent"></div>
+            <!-- Dynamic abstract network representing precision reflection -->
+            <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1920&q=80" alt="Premium Paint Booth" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Premium Gold Floating Particle/Light Effect -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold-600/10 blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-gold-500/10 blur-[150px] pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center md:text-left">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left text content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-gold-950/40 border border-gold-500/30 px-4 py-2 rounded-full backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+                        <span class="text-xs font-semibold uppercase tracking-widest text-gold-400">Székesfehérvár Vezető Prémium Autófényezője</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white tracking-tight leading-none">
+                        Tükörsima Csillogás. <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-500 to-gold-700">Kompromisszumok</span> Nélkül.
+                    </h1>
+
+                    <p class="text-lg text-gray-300 max-w-xl font-light leading-relaxed">
+                        Nem csupán fényezünk. Újjáélesztjük autója gyári fényét a legmodernebb technológiával, porszemmentes kabinban, prémium minőségű Standox és Glasurit festékekkel.
+                    </p>
+
+                    <!-- Trust indicators -->
+                    <div class="grid grid-cols-3 gap-4 py-4 text-center sm:text-left">
+                        <div class="border-l border-gold-500/40 pl-4">
+                            <h3 class="text-2xl font-bold font-serif text-gold-400">100%</h3>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Színazonos Garancia</p>
+                        </div>
+                        <div class="border-l border-gold-500/40 pl-4">
+                            <h3 class="text-2xl font-bold font-serif text-gold-400">10 Év</h3>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Átrozsdásodás elleni garancia</p>
+                        </div>
+                        <div class="border-l border-gold-500/40 pl-4">
+                            <h3 class="text-2xl font-bold font-serif text-gold-400">15+</h3>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Év Szakmai Tapasztalat</p>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
+                        <a href="#kalkulator" class="px-8 py-4 bg-gradient-to-r from-gold-600 to-gold-400 text-black font-bold uppercase tracking-widest text-sm hover:from-gold-500 hover:to-gold-300 shadow-lg shadow-gold-500/20 hover:shadow-gold-500/40 hover:-translate-y-0.5 transition-all duration-300 text-center rounded-sm">
+                            Kalkuláljon Árat Azonnal <i class="fa-solid fa-calculator ml-2"></i>
+                        </a>
+                        <a href="#kapcsolat" class="px-8 py-4 border border-gold-500/40 text-white font-bold uppercase tracking-widest text-sm bg-black/40 hover:bg-gold-500/10 hover:border-gold-400 hover:-translate-y-0.5 transition-all duration-300 text-center rounded-sm">
+                            Szakmai konzultáció
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual: Premium Car Reflection Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative bg-gradient-to-tr from-richblack-light to-zinc-900 border border-gold-500/20 p-6 rounded-md gold-glow">
+                        <div class="absolute -top-3 -right-3 bg-gold-500 text-black font-extrabold text-xs px-3 py-1 uppercase tracking-widest rounded-sm animate-bounce shadow-md">
+                            Ajánlatunk
+                        </div>
+                        
+                        <!-- Visual representation of shiny paint -->
+                        <div class="relative h-64 w-full rounded-sm overflow-hidden mb-6">
+                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Glossy Porsche" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-richblack-light to-transparent"></div>
+                            <span class="absolute bottom-3 left-3 bg-black/70 backdrop-blur-sm border border-gold-500/30 px-3 py-1 text-xs text-gold-400 tracking-wider uppercase font-medium">Fényezésvédelemmel ellátott munka</span>
+                        </div>
+
+                        <h3 class="text-xl font-serif font-bold text-white mb-2">Miért válasszon minket?</h3>
+                        <ul class="space-y-3 text-sm text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-circle-check text-gold-400 mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Digitális spektrofotométeres</strong> színmeghatározás a 100% színazonosságért.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-circle-check text-gold-400 mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Svájci pormentesítő technológia</strong> a tökéletesen zárványmentes felületért.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-circle-check text-gold-400 mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Hozom-Viszem szolgáltatás</strong> Székesfehérváron és környékén, kérésére.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- TRUSTED BY / BRANDS -->
+    <section class="py-12 bg-richblack border-y border-gold-500/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-xs uppercase tracking-widest text-gold-500 font-semibold mb-6">Általunk fényezett és kezelt prémium márkák</p>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="flex justify-center text-xl font-semibold tracking-wider text-gray-400">PORSCHE</div>
+                <div class="flex justify-center text-xl font-semibold tracking-wider text-gray-400">BMW</div>
+                <div class="flex justify-center text-xl font-semibold tracking-wider text-gray-400">MERCEDES</div>
+                <div class="flex justify-center text-xl font-semibold tracking-wider text-gray-400">AUDI</div>
+                <div class="flex justify-center text-xl font-semibold tracking-wider text-gray-400">FERRARI</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="szolgaltatasok" class="py-24 bg-richblack-light relative">
+        <div class="absolute inset-0 bg-radial-gradient from-gold-950/20 via-transparent to-transparent opacity-50"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-sm font-semibold uppercase tracking-widest text-gold-400">Kifogástalan Technológia</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white">Minden Igényre Kiterjedő Szolgáltatások</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-gold-600 to-gold-400 mx-auto rounded-full"></div>
+                <p class="text-gray-400 font-light">
+                    Kisebb karcok javításától a teljes egyedi színátfújásokig, a legmagasabb minőségű anyagokkal dolgozunk.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1: Spot-fényezés (Smart Repair) -->
+                <div class="group relative bg-richblack p-8 rounded-md border border-gold-500/10 hover:border-gold-500/40 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-sm bg-gradient-to-br from-gold-500/10 to-gold-900/30 flex items-center justify-center border border-gold-500/30 mb-6 group-hover:bg-gold-500/20 transition-all">
+                            <i class="fa-solid fa-paintbrush text-gold-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">Spot-fényezés & Smart Repair</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Kisebb sérülések, meghúzások, lökhárító-sérülések helyreállítása elemleszerelés nélkül, akár pár óra alatt. Költséghatékony és gyors megoldás.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gold-500/10 flex items-center justify-between">
+                        <span class="text-xs uppercase tracking-wider text-gold-400 font-semibold">Már 35.000 Ft-tól</span>
+                        <a href="#kalkulator" class="text-xs uppercase tracking-widest text-white hover:text-gold-400 transition-colors font-bold">Kalkulátor <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 2: Elemenkénti Fényezés -->
+                <div class="group relative bg-richblack p-8 rounded-md border border-gold-500/10 hover:border-gold-500/40 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-sm bg-gradient-to-br from-gold-500/10 to-gold-900/30 flex items-center justify-center border border-gold-500/30 mb-6 group-hover:bg-gold-500/20 transition-all">
+                            <i class="fa-solid fa-car-side text-gold-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">Elemenkénti Fényezés</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Karosszériaelemek (ajtó, motorháztető, sárvédő) precíziós fényezése és javítása. A legmodernebb digitális színazonosítással a tökéletes egyezésért.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gold-500/10 flex items-center justify-between">
+                        <span class="text-xs uppercase tracking-wider text-gold-400 font-semibold">Már 65.000 Ft / elem</span>
+                        <a href="#kalkulator" class="text-xs uppercase tracking-widest text-white hover:text-gold-400 transition-colors font-bold">Kalkulátor <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 3: Teljes Autófényezés -->
+                <div class="group relative bg-richblack p-8 rounded-md border border-gold-500/10 hover:border-gold-500/40 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-sm bg-gradient-to-br from-gold-500/10 to-gold-900/30 flex items-center justify-center border border-gold-500/30 mb-6 group-hover:bg-gold-500/20 transition-all">
+                            <i class="fa-solid fa-spray-can text-gold-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">Teljes Gépjármű Újrafényezés</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Akár az eredeti gyári szín visszaállítása, akár egy teljesen új, egyedi prémium vagy matt szín kivitelezése a legszigorúbb technológiai előírások szerint.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gold-500/10 flex items-center justify-between">
+                        <span class="text-xs uppercase tracking-wider text-gold-400 font-semibold">Egyedi Árajánlat alapján</span>
+                        <a href="#kalkulator" class="text-xs uppercase tracking-widest text-white hover:text-gold-400 transition-colors font-bold">Kalkulátor <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 4: Karosszéria lakatolás -->
+                <div class="group relative bg-richblack p-8 rounded-md border border-gold-500/10 hover:border-gold-500/40 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-sm bg-gradient-to-br from-gold-500/10 to-gold-900/30 flex items-center justify-center border border-gold-500/30 mb-6 group-hover:bg-gold-500/20 transition-all">
+                            <i class="fa-solid fa-hammer text-gold-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">Sérülések, horpadások javítása</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Koccanások, balesetek utáni helyreállítás és jégkár javítás. PDR (horpadásjavítás fényezés nélkül) technológia is elérhető a gyorsabb eredményért.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gold-500/10 flex items-center justify-between">
+                        <span class="text-xs uppercase tracking-wider text-gold-400 font-semibold">Gyors felmérés</span>
+                        <a href="#kapcsolat" class="text-xs uppercase tracking-widest text-white hover:text-gold-400 transition-colors font-bold">Kapcsolat <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 5: Kerámia Bevonat -->
+                <div class="group relative bg-richblack p-8 rounded-md border border-gold-500/10 hover:border-gold-500/40 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-sm bg-gradient-to-br from-gold-500/10 to-gold-900/30 flex items-center justify-center border border-gold-500/30 mb-6 group-hover:bg-gold-500/20 transition-all">
+                            <i class="fa-solid fa-gem text-gold-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">Prémium Kerámia Bevonat</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Többrétegű kerámia bevonat felvitele a tökéletes hidrofób és karcvédő hatásért. Tartós, 3-5 évig tartó mélytükrös csillogás és prémium védelem.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gold-500/10 flex items-center justify-between">
+                        <span class="text-xs uppercase tracking-wider text-gold-400 font-semibold">Már 90.000 Ft-tól</span>
+                        <a href="#kalkulator" class="text-xs uppercase tracking-widest text-white hover:text-gold-400 transition-colors font-bold">Kalkulátor <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 6: Biztosítási Ügyintézés -->
+                <div class="group relative bg-richblack p-8 rounded-md border border-gold-500/10 hover:border-gold-500/40 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-sm bg-gradient-to-br from-gold-500/10 to-gold-900/30 flex items-center justify-center border border-gold-500/30 mb-6 group-hover:bg-gold-500/20 transition-all">
+                            <i class="fa-solid fa-file-shield text-gold-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-white mb-3">Teljeskörű CASCO & KGFB ügyintézés</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Levesszük a válláról az adminisztrációs terheket! Szerződött partnerekkel végzett, teljes körű kárügyintézés, így Önnek szinte semmilyen plusz teendője sincs.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gold-500/10 flex items-center justify-between">
+                        <span class="text-xs uppercase tracking-wider text-gold-400 font-semibold">Ingyenes Ügyintézés</span>
+                        <a href="#kapcsolat" class="text-xs uppercase tracking-widest text-white hover:text-gold-400 transition-colors font-bold">Részletek <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BEFORE/AFTER SECTION -->
+    <section id="elotte-utana" class="py-24 bg-richblack border-t border-gold-500/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Info block -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-sm font-semibold uppercase tracking-widest text-gold-400">Bizonyíték, Nem Csak Ígéret</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">Húzza el a csúszkát az eredményért!</h2>
+                    <p class="text-gray-400 leading-relaxed font-light">
+                        Tekintse meg egyik kiemelt munkánkat. Egy komoly karcolás és horpadás után az autót teljesen gyári állapotúra állítottuk helyre. Nincs színeltérés, nincs árnyalatbeli különbség.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-400 font-bold border border-gold-500/30">1</div>
+                            <span class="text-sm text-gray-300 font-medium">Lézeres egyengetés és felület előkészítés</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-400 font-bold border border-gold-500/30">2</div>
+                            <span class="text-sm text-gray-300 font-medium">3 rétegű bázislakk felvitel és prémium lakkzárás</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-400 font-bold border border-gold-500/30">3</div>
+                            <span class="text-sm text-gray-300 font-medium">Porszem-mentes infraszárításos rögzítés</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Slider Visual (Clipped Bug-Free) -->
+                <div class="lg:col-span-7 flex flex-col items-center">
+                    <div class="relative w-full max-w-2xl aspect-[16/10] overflow-hidden rounded-md border border-gold-500/30 select-none shadow-2xl cursor-ew-resize" id="slider-container">
+                        <!-- After Image (base layer, visible on the right side) -->
+                        <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80" alt="Javított autó - Utána" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
+                        <div class="absolute top-4 right-4 bg-emerald-600/95 text-white text-xs font-bold tracking-widest px-3 py-1 uppercase rounded-sm z-10">Utána</div>
+
+                        <!-- Before Image (clipped dynamically, visible on the left) -->
+                        <img id="after-image" src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80" alt="Sérült autó - Előtte" class="absolute inset-0 w-full h-full object-cover pointer-events-none z-20" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
+                        <div class="absolute top-4 left-4 bg-red-600/90 text-white text-xs font-bold tracking-widest px-3 py-1 uppercase rounded-sm z-30">Előtte</div>
+
+                        <!-- Slider Handle -->
+                        <div class="absolute inset-y-0 left-1/2 w-1 bg-gold-400 -translate-x-1/2 flex items-center justify-center z-40" id="slider-handle">
+                            <div class="w-10 h-10 rounded-full bg-gold-500 text-black border border-white flex items-center justify-center shadow-lg transform -translate-y-1/2 top-1/2 absolute">
+                                <i class="fa-solid fa-arrows-left-right"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- IRRESISTIBLE PROMO OFFER SECTION -->
+    <section class="py-20 bg-gradient-to-b from-richblack-light via-black to-richblack border-y-2 border-gold-500/40 relative overflow-hidden">
+        <!-- Golden dynamic aura background -->
+        <div class="absolute -top-1/2 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-gold-500/5 blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8">
+            <div class="inline-block bg-gold-950/60 border border-gold-500/40 text-gold-400 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-2">
+                Szezonális VIP Ajánlatunk
+            </div>
+
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-serif font-extrabold text-white tracking-tight">
+                Kerámia Védelem <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-500 to-gold-700">Azonnali -20%</span> Kedvezménnyel!
+            </h2>
+
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
+                Foglaljon időpontot online az elkövetkező napokra, és a professzionális többrétegű kerámia lakkvédő bevonatunkat most <span class="text-gold-400 font-semibold">20%-os kedvezménnyel</span> adjuk, vagy válasszon <span class="text-gold-400 font-semibold">ajándék ózonos beltér tisztítást</span> minden teljes elemfényezés mellé!
+            </p>
+
+            <!-- Countdown Timer Graphic -->
+            <div class="max-w-md mx-auto py-6 bg-black/80 border border-gold-500/30 rounded-md shadow-xl backdrop-blur-sm">
+                <p class="text-xs uppercase tracking-widest text-gold-500 font-bold mb-4">A kiemelt ajánlat lejár:</p>
+                <div class="grid grid-cols-4 gap-2 px-6">
+                    <div class="bg-richblack p-3 rounded-sm border border-gold-500/10">
+                        <span id="timer-days" class="text-2xl sm:text-3xl font-serif font-bold text-white">02</span>
+                        <p class="text-[10px] uppercase text-gray-500 tracking-wider">Nap</p>
+                    </div>
+                    <div class="bg-richblack p-3 rounded-sm border border-gold-500/10">
+                        <span id="timer-hours" class="text-2xl sm:text-3xl font-serif font-bold text-white">14</span>
+                        <p class="text-[10px] uppercase text-gray-500 tracking-wider">Óra</p>
+                    </div>
+                    <div class="bg-richblack p-3 rounded-sm border border-gold-500/10">
+                        <span id="timer-minutes" class="text-2xl sm:text-3xl font-serif font-bold text-white">45</span>
+                        <p class="text-[10px] uppercase text-gray-500 tracking-wider">Perc</p>
+                    </div>
+                    <div class="bg-richblack p-3 rounded-sm border border-gold-500/10">
+                        <span id="timer-seconds" class="text-2xl sm:text-3xl font-serif font-bold text-white">12</span>
+                        <p class="text-[10px] uppercase text-gray-500 tracking-wider">Mp</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ultimate Urgent Conversion Call -->
+            <div class="pt-4">
+                <a href="#quote-form" onclick="claimOffer()" class="inline-flex items-center px-10 py-5 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 text-black font-extrabold text-sm uppercase tracking-widest hover:scale-105 transition-all duration-300 rounded-sm gold-glow-strong">
+                    Kérem a kedvezményt, kitöltöm az űrlapot <i class="fa-solid fa-gift ml-2 text-base"></i>
+                </a>
+                <p class="text-xs text-gray-500 mt-3">*Az ajánlat csak a visszaszámláló lejárta előtt beérkezett online jelentkezésekre érvényes!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICE CALCULATOR SECTION -->
+    <section id="kalkulator" class="py-24 bg-richblack-light border-y border-gold-500/15 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <span class="text-sm font-semibold uppercase tracking-widest text-gold-400">Átlátható Árak, Nincsenek Rejtett Költségek</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">Online Becsült Árkalkulátor</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-gold-600 to-gold-400 mx-auto rounded-full"></div>
+                <p class="text-gray-400 font-light text-sm">
+                    Kattintson az opciókra és kapjon egy azonnali, reális becslést a javítás várható költségére.
+                </p>
+            </div>
+
+            <!-- Calculator Body -->
+            <div class="bg-richblack border border-gold-500/20 rounded-md p-6 md:p-10 gold-glow">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    
+                    <!-- Left: Selections -->
+                    <div class="space-y-6">
+                        <!-- Car Category -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gold-400 font-bold mb-3">1. Gépjármű Kategória</label>
+                            <div class="grid grid-cols-3 gap-3">
+                                <button type="button" class="calc-btn-category active px-3 py-4 rounded-sm border border-gold-500 bg-gold-500/10 text-white text-xs font-semibold text-center uppercase tracking-wider transition-all" data-value="small">
+                                    <i class="fa-solid fa-car-side text-lg block mb-2 text-gold-400"></i> Kicsi / Városi
+                                </button>
+                                <button type="button" class="calc-btn-category px-3 py-4 rounded-sm border border-gold-500/10 bg-richblack-light text-gray-400 text-xs font-semibold text-center uppercase tracking-wider transition-all" data-value="medium">
+                                    <i class="fa-solid fa-car text-lg block mb-2 text-gold-400"></i> Szedán / Kombi
+                                </button>
+                                <button type="button" class="calc-btn-category px-3 py-4 rounded-sm border border-gold-500/10 bg-richblack-light text-gray-400 text-xs font-semibold text-center uppercase tracking-wider transition-all" data-value="large">
+                                    <i class="fa-solid fa-truck-monster text-lg block mb-2 text-gold-400"></i> SUV / Luxus
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Service Type -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gold-400 font-bold mb-3">2. Szolgáltatás Típusa</label>
+                            <select id="calc-service" class="w-full bg-richblack-light border border-gold-500/20 rounded-sm py-3 px-4 text-white text-sm focus:outline-none focus:border-gold-500">
+                                <option value="spot">Spot / Okos Fényezés (Kisebb sérülés)</option>
+                                <option value="element" selected>Elemenkénti Fényezés (pl. Csak ajtó)</option>
+                                <option value="multi">Több elem fényezése (3-4 elem)</option>
+                                <option value="full">Teljes gépjármű átfényezése</option>
+                                <option value="ceramic">Prémium Kerámia Bevonat</option>
+                            </select>
+                        </div>
+
+                        <!-- Number of Elements -->
+                        <div id="element-count-wrapper">
+                            <label class="block text-xs uppercase tracking-widest text-gold-400 font-bold mb-3">3. Sérült / Javítandó elemek száma</label>
+                            <div class="flex items-center space-x-4">
+                                <button type="button" id="btn-dec" class="w-10 h-10 bg-richblack-light border border-gold-500/20 text-white flex items-center justify-center font-bold text-lg hover:border-gold-500 transition-all rounded-sm">-</button>
+                                <span id="element-count-display" class="text-xl font-bold font-serif text-white w-12 text-center">1</span>
+                                <button type="button" id="btn-inc" class="w-10 h-10 bg-richblack-light border border-gold-500/20 text-white flex items-center justify-center font-bold text-lg hover:border-gold-500 transition-all rounded-sm">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Live Estimate and Quick Send -->
+                    <div class="bg-richblack-light border border-gold-500/10 p-6 rounded-sm flex flex-col justify-between items-center text-center">
+                        <div class="space-y-4 w-full">
+                            <h4 class="text-xs uppercase tracking-widest text-gray-400 font-bold">Becsült Várható Költség</h4>
+                            
+                            <div class="py-6 border-y border-gold-500/10">
+                                <span id="calc-price" class="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gold-300 to-gold-500">
+                                    65.000 Ft
+                                </span>
+                                <p class="text-xs text-gray-500 mt-2">*Tájékoztató jellegű, nem kötelező érvényű alapár.</p>
+                            </div>
+
+                            <ul class="text-left text-xs text-gray-400 space-y-2 py-2">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-gold-500 mr-2"></i> Prémium gyári festékek és lakkok</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-gold-500 mr-2"></i> 100% színazonossági garancia</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-gold-500 mr-2"></i> Ingyenes mosás az átadás előtt</li>
+                            </ul>
+                        </div>
+
+                        <!-- Interactive conversion bridge -->
+                        <button onclick="bridgeToContact()" class="w-full mt-6 py-4 bg-gradient-to-r from-gold-600 to-gold-400 text-black font-extrabold text-xs uppercase tracking-widest hover:from-gold-500 hover:to-gold-300 transition-all duration-300 rounded-sm">
+                            Kérem a részletes árajánlatot <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="velemenyek" class="py-24 bg-richblack relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <span class="text-sm font-semibold uppercase tracking-widest text-gold-400">Valódi Elégedett Ügyfelek</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">Akik Minket Választottak</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-gold-600 to-gold-400 mx-auto rounded-full"></div>
+                <p class="text-gray-400 font-light text-sm">
+                    Google értékelések alapján 5.0/5 csillagos elégedettséggel büszkélkedhetünk.
+                </p>
+            </div>
+
+            <!-- Reviews Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Testimonial 1 -->
+                <div class="bg-richblack-light border border-gold-500/10 p-8 rounded-sm hover:border-gold-500/30 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-gold-400 space-x-1 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 font-light italic text-sm leading-relaxed mb-6">
+                            "A Tesla Model Y lökhárítóján volt egy elég csúnya mély karcolás, amit egy oszlop okozott. Elvittem hozzájuk, és másnapra tökéletesen, színeltérés nélkül visszaadták. Egyszerűen fantasztikus munkát végeztek, nagyon ajánlom őket!"
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80" alt="Horváth Gábor" class="w-12 h-12 rounded-full border border-gold-500/30 object-cover">
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Horváth Gábor</h4>
+                            <p class="text-xs text-gray-500">Tesla Model Y tulajdonos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-richblack-light border border-gold-500/10 p-8 rounded-sm hover:border-gold-500/30 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-gold-400 space-x-1 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 font-light italic text-sm leading-relaxed mb-6">
+                            "Egyedi Porsche projektet bíztam rájuk. Komplett külső-belső átfényezés volt a kérés egy különleges gyári vintage színre. A pontosság és a szakmai precizitás, amit mutattak, egészen ritka Magyarországon. Maximális elégedettség."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&h=100&q=80" alt="Kovács Barnabás" class="w-12 h-12 rounded-full border border-gold-500/30 object-cover">
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Kovács Barnabás</h4>
+                            <p class="text-xs text-gray-500">Porsche 911 (993) tulajdonos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-richblack-light border border-gold-500/10 p-8 rounded-sm hover:border-gold-500/30 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-gold-400 space-x-1 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 font-light italic text-sm leading-relaxed mb-6">
+                            "Biztosítási kárügyintézéssel együtt vittem oda a sérült autómat. Mindent ők intéztek az elejétől a végéig, nekem csak az elkészült autót kellett átvennem. Gyönyörű fényezés, tiszta beltér, tökéletes szerviz."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&h=100&q=80" alt="Varga Beatrix" class="w-12 h-12 rounded-full border border-gold-500/30 object-cover">
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Varga Beatrix</h4>
+                            <p class="text-xs text-gray-500">BMW X5 tulajdonos</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="kapcsolat" class="py-24 bg-richblack-light relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Left: Info & Map mock -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-sm font-semibold uppercase tracking-widest text-gold-400">Vegye Fel Velünk a Kapcsolatot</span>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-2">Díjmentes Állapotfelmérés</h2>
+                        <div class="w-16 h-1 bg-gradient-to-r from-gold-600 to-gold-400 mt-4 rounded-full"></div>
+                    </div>
+
+                    <p class="text-gray-400 font-light leading-relaxed">
+                        Töltse ki az űrlapot, küldjön nekünk képeket a sérülésről, és szakértő kollégánk 2 munkaórán belül felveszi Önnel a kapcsolatot a pontos ajánlattal.
+                    </p>
+
+                    <!-- Contact detail icons -->
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-sm bg-richblack border border-gold-500/30 flex items-center justify-center text-gold-400 text-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-gray-500 uppercase tracking-widest">Hívjon Minket Direct</h4>
+                                <a href="tel:+36204285931" class="text-base text-white hover:text-gold-400 font-semibold">06 20 428 5931</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-sm bg-richblack border border-gold-500/30 flex items-center justify-center text-gold-400 text-lg">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-gray-500 uppercase tracking-widest">E-mail Címünk</h4>
+                                <a href="mailto:info@nivoautomotive.hu" class="text-base text-white hover:text-gold-400 font-semibold">info@nivoautomotive.hu</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-sm bg-richblack border border-gold-500/30 flex items-center justify-center text-gold-400 text-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-gray-500 uppercase tracking-widest">Címünk (Személyes megtekintés)</h4>
+                                <p class="text-sm text-white font-semibold">8000 Székesfehérvár, Repülőtér út</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Work Hours -->
+                    <div class="bg-richblack border border-gold-500/10 p-4 rounded-sm">
+                        <h4 class="text-xs text-gold-400 uppercase tracking-widest font-bold mb-2">Nyitvatartás</h4>
+                        <div class="flex justify-between text-xs text-gray-400">
+                            <span>Hétfő - Péntek:</span>
+                            <span class="text-white font-medium">08:00 - 16:00</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-400 mt-1">
+                            <span>Szombat:</span>
+                            <span class="text-white font-medium">Zárva</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Active Lead Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-richblack border border-gold-500/20 p-8 rounded-md gold-glow">
+                        <h3 class="text-xl font-serif font-bold text-white mb-6">Kérjen ingyenes visszahívást vagy árajánlatot</h3>
+                        
+                        <form id="quote-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">Teljes Név *</label>
+                                    <input type="text" id="name" required class="w-full bg-richblack-light border border-gold-500/20 focus:border-gold-500 rounded-sm py-3 px-4 text-white text-sm focus:outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">Telefonszám *</label>
+                                    <input type="tel" id="phone" required class="w-full bg-richblack-light border border-gold-500/20 focus:border-gold-500 rounded-sm py-3 px-4 text-white text-sm focus:outline-none transition-all" placeholder="+36">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="email" class="block text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">E-mail Cím *</label>
+                                    <input type="email" id="email" required class="w-full bg-richblack-light border border-gold-500/20 focus:border-gold-500 rounded-sm py-3 px-4 text-white text-sm focus:outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label for="car" class="block text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">Autó Típusa és Évjárata</label>
+                                    <input type="text" id="car" class="w-full bg-richblack-light border border-gold-500/20 focus:border-gold-500 rounded-sm py-3 px-4 text-white text-sm focus:outline-none transition-all" placeholder="pl. Audi A6 2019">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="service-select" class="block text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">Keresett Szolgáltatás</label>
+                                <select id="service-select" class="w-full bg-richblack-light border border-gold-500/20 focus:border-gold-500 rounded-sm py-3 px-4 text-white text-sm focus:outline-none transition-all">
+                                    <option value="spot">Spot-fényezés (Kis hiba)</option>
+                                    <option value="element">Elemenkénti fényezés</option>
+                                    <option value="full">Teljes újrafényezés</option>
+                                    <option value="ceramic">Kerámia bevonat</option>
+                                    <option value="other">Karosszéria javítás & Egyéb</option>
+                                </select>
+                            </div>
+
+                            <!-- Photo upload mock (premium touchpoint) -->
+                            <div>
+                                <label class="block text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">Sérülés Fotóinak csatolása (Gyorsabb kiértékelésért)</label>
+                                <div class="border-2 border-dashed border-gold-500/20 hover:border-gold-500/50 rounded-sm p-6 text-center cursor-pointer transition-all bg-richblack-light/50 relative">
+                                    <input type="file" multiple id="photo-upload" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handleFileSelect(event)">
+                                    <i class="fa-solid fa-cloud-arrow-up text-gold-400 text-3xl mb-3"></i>
+                                    <p class="text-sm text-gray-300 font-medium" id="upload-placeholder">Húzza ide a fájlokat vagy kattintson a tallózáshoz</p>
+                                    <p class="text-xs text-gray-500 mt-1">PNG, JPG, max 10MB fájlonként</p>
+                                    <div id="file-list" class="mt-3 flex flex-wrap gap-2 justify-center hidden"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">Megjegyzés / Részletek</label>
+                                <textarea id="message" rows="4" class="w-full bg-richblack-light border border-gold-500/20 focus:border-gold-500 rounded-sm py-3 px-4 text-white text-sm focus:outline-none transition-all" placeholder="Részletezze a hibát vagy kérdését..."></textarea>
+                            </div>
+
+                            <!-- GDPR validation and submit -->
+                            <div class="flex items-start">
+                                <input type="checkbox" id="gdpr" required class="mt-1 mr-3 accent-gold-500">
+                                <label for="gdpr" class="text-xs text-gray-400 leading-normal">Elolvastam és elfogadom az Adatvédelmi Nyilatkozatot, valamint hozzájárulok ahhoz, hogy adataimat az ajánlatadáshoz felhasználják. *</label>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 bg-gradient-to-r from-gold-600 to-gold-400 text-black font-extrabold text-xs uppercase tracking-widest hover:from-gold-500 hover:to-gold-300 shadow-lg shadow-gold-500/20 hover:shadow-gold-500/40 transition-all duration-300 rounded-sm">
+                                Árajánlat és Visszahívás Kérése <i class="fa-solid fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+
+                        <!-- Custom notification wrapper instead of window.alert() -->
+                        <div id="form-success" class="hidden mt-6 bg-emerald-950/80 border border-emerald-500/40 p-4 rounded-sm text-center">
+                            <i class="fa-solid fa-circle-check text-emerald-400 text-3xl mb-2"></i>
+                            <h4 class="text-white font-bold text-lg mb-1">Köszönjük megkeresését!</h4>
+                            <p class="text-xs text-emerald-300">Szakértőnk hamarosan felveszi Önnel a kapcsolatot a megadott adatokon.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-gold-500/10 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Brand col -->
+                <div class="space-y-4">
+                    <span class="text-xl font-serif font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-500 to-gold-700">
+                        NÍVÓ<span class="text-white font-sans font-light text-sm tracking-normal ml-1">AUTOMOTIVE</span>
+                    </span>
+                    <p class="text-xs text-gray-500 font-light leading-relaxed">
+                        Prémium autófényező, lakatosműhely és kozmetika Székesfehérváron. Kifogástalan technológia a gyári csillogásért.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-500 hover:text-gold-400 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-gold-400 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-gold-400 transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Link col 1 -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest text-white font-semibold mb-4">Szolgáltatások</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#szolgaltatasok" class="hover:text-gold-400 transition-colors">Spot-fényezés (Smart Repair)</a></li>
+                        <li><a href="#szolgaltatasok" class="hover:text-gold-400 transition-colors">Karosszéria Elemek Fényezése</a></li>
+                        <li><a href="#szolgaltatasok" class="hover:text-gold-400 transition-colors">Teljes Autó Újrafényezés</a></li>
+                        <li><a href="#szolgaltatasok" class="hover:text-gold-400 transition-colors">Kerámia Bevonat Telepítés</a></li>
+                        <li><a href="#szolgaltatasok" class="hover:text-gold-400 transition-colors">Kárügyintézés & Biztosítás</a></li>
+                    </ul>
+                </div>
+
+                <!-- Link col 2 -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest text-white font-semibold mb-4">Hasznos Információk</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#elotte-utana" class="hover:text-gold-400 transition-colors">Előtte-Utána Galéria</a></li>
+                        <li><a href="#kalkulator" class="hover:text-gold-400 transition-colors">Online Árkalkuláció</a></li>
+                        <li><a href="#velemenyek" class="hover:text-gold-400 transition-colors">Ügyfeleink Véleményei</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Adatvédelmi Nyilatkozat</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">ÁSZF</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact col -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest text-white font-semibold mb-4">Kapcsolat</h4>
+                    <p class="text-xs text-gray-500 mb-2">Nívó Automotive Műhely</p>
+                    <p class="text-xs text-white">8000 Székesfehérvár, Repülőtér út</p>
+                    <p class="text-xs text-white mt-2">Telefon: 06 20 428 5931</p>
+                    <p class="text-xs text-white mt-1">E-mail: info@nivoautomotive.hu</p>
+                </div>
+            </div>
+
+            <!-- Copyright info -->
+            <div class="pt-8 border-t border-gold-500/10 text-center flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2026 Nívó Automotive Premium Automotive. Minden jog fenntartva.</p>
+                <p class="mt-2 sm:mt-0 font-light">Készítette: Premium Automotive Studio</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // 1. MOBILE MENU TOGGLE
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click of a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 2. BEFORE/AFTER IMAGE SLIDER (ROBUST & MOBILE-FRIENDLY USING CLIP-PATH)
+        const container = document.getElementById('slider-container');
+        const afterImage = document.getElementById('after-image');
+        const handle = document.getElementById('slider-handle');
+
+        let sliderRAF = null;
+        let pendingX = null;
+        let cachedRect = null;
+
+        function moveSlider(clientX) {
+            pendingX = clientX;
+            if (sliderRAF) return; // already scheduled
+            sliderRAF = requestAnimationFrame(() => {
+                sliderRAF = null;
+                if (!cachedRect) cachedRect = container.getBoundingClientRect();
+                let percentage = ((pendingX - cachedRect.left) / cachedRect.width) * 100;
+                if (percentage < 0) percentage = 0;
+                if (percentage > 100) percentage = 100;
+                afterImage.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0 100%)`;
+                handle.style.left = percentage + '%';
+            });
+        }
+
+        // Invalidate cached rect on resize
+        window.addEventListener('resize', () => { cachedRect = null; }, { passive: true });
+
+        let isDragging = false;
+
+        const startDrag = (e) => {
+            isDragging = true;
+            cachedRect = container.getBoundingClientRect();
+            if (e.touches && e.touches[0]) {
+                moveSlider(e.touches[0].clientX);
+            } else {
+                moveSlider(e.clientX);
+            }
+        };
+
+        const stopDrag = () => {
+            isDragging = false;
+        };
+
+        // Desktop Events
+        container.addEventListener('mousedown', startDrag);
+        window.addEventListener('mouseup', stopDrag);
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            moveSlider(e.clientX);
+        }, { passive: true });
+
+        // Mobile Touch Events — passive:false so we can prevent page scroll while dragging
+        container.addEventListener('touchstart', startDrag, { passive: false });
+        window.addEventListener('touchend', stopDrag, { passive: true });
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault(); // stop page scroll during slider drag
+            if (e.touches && e.touches[0]) {
+                moveSlider(e.touches[0].clientX);
+            }
+        }, { passive: false });
+
+        // Click anywhere to jump slider
+        container.addEventListener('click', (e) => {
+            moveSlider(e.clientX);
+        });
+
+        // Recalculate slider alignment on window resize
+        window.addEventListener('resize', () => {
+            // Re-sets to mid position gracefully without losing ratio
+            afterImage.style.clipPath = `polygon(0 0, 50% 0, 50% 100%, 0 100%)`;
+            handle.style.left = '50%';
+        });
+
+
+        // 3. INTERACTIVE QUOTE CALCULATOR
+        let carSize = 'small';
+        let serviceType = 'element';
+        let elementCount = 1;
+
+        // Base values matrix
+        const basePrices = {
+            small: { spot: 35000, element: 65000, full: 450000, ceramic: 90000 },
+            medium: { spot: 40000, element: 75000, full: 550000, ceramic: 110000 },
+            large: { spot: 50000, element: 85000, full: 680000, ceramic: 130000 }
+        };
+
+        const categoryButtons = document.querySelectorAll('.calc-btn-category');
+        const serviceSelector = document.getElementById('calc-service');
+        const elementCountWrapper = document.getElementById('element-count-wrapper');
+        const elementCountDisplay = document.getElementById('element-count-display');
+        const btnInc = document.getElementById('btn-inc');
+        const btnDec = document.getElementById('btn-dec');
+        const priceDisplay = document.getElementById('calc-price');
+
+        // Toggle vehicle category
+        categoryButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryButtons.forEach(b => {
+                    b.classList.remove('active', 'border-gold-500', 'bg-gold-500/10', 'text-white');
+                    b.classList.add('border-gold-500/10', 'bg-richblack-light', 'text-gray-400');
+                });
+                btn.classList.add('active', 'border-gold-500', 'bg-gold-500/10', 'text-white');
+                btn.classList.remove('border-gold-500/10', 'bg-richblack-light', 'text-gray-400');
+                
+                carSize = btn.getAttribute('data-value');
+                calculatePrice();
+            });
+        });
+
+        // Service selector changed
+        serviceSelector.addEventListener('change', (e) => {
+            serviceType = e.target.value;
+            // Hide element count if full or ceramic is selected
+            if (serviceType === 'element' || serviceType === 'spot') {
+                elementCountWrapper.style.display = 'block';
+            } else {
+                elementCountWrapper.style.display = 'none';
+            }
+            calculatePrice();
+        });
+
+        // Increment elements
+        btnInc.addEventListener('click', () => {
+            if (elementCount < 10) {
+                elementCount++;
+                elementCountDisplay.textContent = elementCount;
+                calculatePrice();
+            }
+        });
+
+        // Decrement elements
+        btnDec.addEventListener('click', () => {
+            if (elementCount > 1) {
+                elementCount--;
+                elementCountDisplay.textContent = elementCount;
+                calculatePrice();
+            }
+        });
+
+        // Live calculation logic
+        function calculatePrice() {
+            let total = 0;
+            const matrix = basePrices[carSize];
+
+            if (serviceType === 'spot') {
+                total = matrix.spot * elementCount;
+            } else if (serviceType === 'element') {
+                total = matrix.element * elementCount;
+            } else if (serviceType === 'multi') {
+                // Multi element discount package
+                total = (matrix.element * 3.5); // equivalent flat package rate for multiple sides
+            } else if (serviceType === 'full') {
+                total = matrix.full;
+            } else if (serviceType === 'ceramic') {
+                total = matrix.ceramic;
+            }
+
+            // Formatting
+            const formatter = new Intl.NumberFormat('hu-HU', {
+                style: 'currency',
+                currency: 'HUF',
+                maximumFractionDigits: 0
+            });
+
+            // Re-render
+            priceDisplay.textContent = formatter.format(total).replace('HUF', 'Ft');
+        }
+
+        // Bridge details from calculator into the main quote form
+        function bridgeToContact() {
+            const formSection = document.getElementById('kapcsolat');
+            const formService = document.getElementById('service-select');
+            
+            // Map calculator state to form dropdown values
+            if (serviceType === 'spot' || serviceType === 'element' || serviceType === 'full' || serviceType === 'ceramic') {
+                formService.value = serviceType;
+            } else {
+                formService.value = 'other';
+            }
+
+            // Fill message area with a smart template helper
+            const messageInput = document.getElementById('message');
+            const vehicleText = carSize === 'small' ? 'Kicsi / Városi' : carSize === 'medium' ? 'Szedán / Kombi' : 'SUV / Luxus';
+            messageInput.value = `Online kalkuláció alapján érdekelne ajánlat.\nKategória: ${vehicleText}\nSzolgáltatás: ${serviceSelector.options[serviceSelector.selectedIndex].text}\nElemek száma: ${serviceType === 'element' || serviceType === 'spot' ? elementCount : 'N/A'}`;
+
+            // Smooth scroll to form
+            formSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 4. FORM SUBMISSION INTERACTION
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // Collect Form inputs
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const successBox = document.getElementById('form-success');
+            const formEl = document.getElementById('quote-form');
+
+            // Visual loading feedback
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin mr-2"></i> Adatok küldése...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                // Simulate successful API response
+                formEl.classList.add('hidden');
+                successBox.classList.remove('hidden');
+            }, 1500);
+        }
+
+        // Dynamic File Upload visualizer
+        function handleFileSelect(event) {
+            const files = event.target.files;
+            const placeholder = document.getElementById('upload-placeholder');
+            const fileList = document.getElementById('file-list');
+
+            if (files.length > 0) {
+                placeholder.textContent = `${files.length} kép kiválasztva.`;
+                fileList.innerHTML = '';
+                fileList.classList.remove('hidden');
+
+                for (let i = 0; i < files.length; i++) {
+                    const fileSpan = document.createElement('span');
+                    fileSpan.className = 'bg-gold-500/20 text-gold-400 text-xs px-2 py-1 border border-gold-500/30 rounded-sm flex items-center gap-1';
+                    fileSpan.innerHTML = `<i class="fa-solid fa-image"></i> ${files[i].name.substring(0, 15)}...`;
+                    fileList.appendChild(fileSpan);
+                }
+            }
+        }
+
+        // 5. SEASONAL VIP PROMO COUNTDOWN TIMER
+        // Set countdown to 2 days from now dynamically so it never stays expired
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 2);
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const difference = targetDate.getTime() - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('timer-days').textContent = String(days).padStart(2, '0');
+                document.getElementById('timer-hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('timer-minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('timer-seconds').textContent = String(seconds).padStart(2, '0');
+            }
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // Claim seasonal offer helper
+        function claimOffer() {
+            const formService = document.getElementById('service-select');
+            formService.value = 'ceramic'; // Auto select ceramic as VIP promotion
+            const messageInput = document.getElementById('message');
+            messageInput.value = "Szeretném igénybe venni a Szezonális VIP Ajánlatot (-20% Kerámia Védelemre / ajándék ózonos tisztítás)!";
+            
+            // Scroll to form smoothly
+            document.getElementById('kapcsolat').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
